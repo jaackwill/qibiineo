@@ -1,4 +1,17 @@
 @echo off
+set "targetPath=%userprofile%\Desktop\qibiineo\QibiiNEO\QibiiNEO.exe"
+set "shortcutName=%userprofile%\Desktop\QibiiNEO.lnk"
+
+echo Set oWS = WScript.CreateObject("WScript.Shell")> CreateShortcut.vbs
+echo sLinkFile = "%shortcutName%">> CreateShortcut.vbs
+echo Set oLink = oWS.CreateShortcut(sLinkFile)>> CreateShortcut.vbs
+echo oLink.TargetPath = "%targetPath%">> CreateShortcut.vbs
+echo oLink.Save>> CreateShortcut.vbs
+cscript CreateShortcut.vbs
+del CreateShortcut.vbs
+
+echo Shortcut created successfully.
+pause
 
 set "desktopFolder=%USERPROFILE%\Desktop"
 
